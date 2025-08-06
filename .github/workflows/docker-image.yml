@@ -15,7 +15,12 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
+    #with:
+       # user: ${{secrets.DOCKERUSER}
+       # mima: ${{secrets.DOCKERMIMA}
       run: |
-        docker build . --file Dockerfile --tag blessimgskin:test3
+        docker build . --file Dockerfile --tag blessingskin:test3
         docker images
+        docker login --username ${{secrets.DOCKERUSER}} --password ${{secrets.DOCKERMIMA}}
+        docker push devintom/blessing_skin_docker:test3
       
