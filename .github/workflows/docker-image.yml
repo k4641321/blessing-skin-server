@@ -21,6 +21,6 @@ jobs:
       run: |
         docker build . --file Dockerfile --tag ${{secrets.DOCKERUSER}}/blessingskin:test3
         docker images
-        docker login --username ${{secrets.DOCKERUSER}} --password-stdin ${{secrets.DOCKERMIMA}}
+        docker login --username ${{secrets.DOCKERUSER}} --password ${{secrets.DOCKERMIMA}}
         docker push ${{secrets.DOCKERUSER}}/blessing_skin_docker:test3
       
